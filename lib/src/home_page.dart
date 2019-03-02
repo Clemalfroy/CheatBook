@@ -14,10 +14,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    setState(() {
-      _animationController =
-          AnimationController(vsync: this, duration: Duration(seconds: 1));
-    });
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _animationController.forward();
   }
 
   Color _getColor(int index) {
@@ -28,7 +27,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    _animationController.forward();
     return Scaffold(
       body: GridView.count(
           crossAxisCount: 2,
@@ -48,7 +46,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     color: _getColor(index),
                   ),
                   //TODO: Display the text in a better way
-                  child: Center(child: Text(routes.keys.toList()[index], softWrap: false,)),
+                  child: Center(
+                      child: Text(
+                    routes.keys.toList()[index],
+                    softWrap: false,
+                  )),
                 ),
               ),
             );
