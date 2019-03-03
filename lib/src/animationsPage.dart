@@ -19,7 +19,7 @@ class _AnimationsPageState extends State<AnimationsPage>
         AnimationController(vsync: this, duration: Duration(seconds: 1));
     _animation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0.9, 1.0, curve: Curves.easeIn)));
+        curve: Interval(0.0, 0.6, curve: Curves.easeIn)));
     _animationController.forward();
   }
 
