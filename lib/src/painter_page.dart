@@ -18,8 +18,9 @@ class PainterPageState extends State<PainterPage>
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
-    _circleColor = ColorTween(begin: Colors.blue, end: Colors.red).animate(
-        CurvedAnimation(parent: _animationController, curve: Curves.easeIn));
+    _circleColor = ColorTween(begin: Colors.lightBlueAccent, end: Colors.blue)
+        .animate(CurvedAnimation(
+            parent: _animationController, curve: Curves.easeIn));
     _animationController.forward();
   }
 
@@ -52,7 +53,10 @@ class PainterPageState extends State<PainterPage>
               alignment: Alignment.topCenter,
               child: Text(
                 'test',
-                style: Theme.of(context).textTheme.display4,
+                style: Theme.of(context)
+                    .textTheme
+                    .display4
+                    .copyWith(color: Colors.black),
               ))
         ],
       ),
@@ -76,7 +80,7 @@ class FirstPainter extends CustomPainter {
           size.width * 0.2, size.height * 0.9, size.width, size.height)
       ..lineTo(size.width, 0);
     canvas.drawPath(greenPath, paint);
-    paint.color = Colors.deepPurple;
+    paint.color = Colors.blue;
     Path cyanPath = Path()
       ..lineTo(0, size.height)
       ..conicTo(size.width / 3, size.height / 7, size.width / 1.5, 0, 7)
