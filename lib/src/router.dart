@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cheatbook/src/PainterPage.dart';
-import 'package:flutter_cheatbook/src/animationsPage.dart';
-import 'package:flutter_cheatbook/src/flareAnimationPage.dart';
+import 'package:flutter_cheatbook/src/animations_page.dart';
+import 'package:flutter_cheatbook/src/flare_animation_page.dart';
 import 'package:flutter_cheatbook/src/home_page.dart';
+import 'package:flutter_cheatbook/src/painter_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
   "/": (context) => HomePage(),
