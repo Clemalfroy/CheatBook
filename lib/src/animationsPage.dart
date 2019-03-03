@@ -16,9 +16,10 @@ class _AnimationsPageState extends State<AnimationsPage>
   void initState() {
     super.initState();
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _animation = Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _animationController, curve: Curves.easeIn));
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _animation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: _animationController,
+        curve: Interval(0.9, 1.0, curve: Curves.easeIn)));
     _animationController.forward();
   }
 
@@ -141,7 +142,9 @@ class RadialAnimation extends StatelessWidget {
         ),
       child: FloatingActionButton(
         heroTag: null,
-        onPressed: () {},
+        onPressed: () {
+          print('a');
+        },
         child: Icon(icon),
         backgroundColor: color,
       ),
