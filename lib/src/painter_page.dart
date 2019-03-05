@@ -60,7 +60,16 @@ class PainterPageState extends State<PainterPage>
                     .textTheme
                     .display4
                     .copyWith(color: Colors.black),
-              ))
+              )),
+          Positioned(
+            right: 50,
+            top: 450,
+            child: RaisedButton(
+              onPressed: () {},
+              color: Colors.red,
+              child: Text('Click me'),
+            ),
+          )
         ],
       ),
     );
@@ -104,7 +113,9 @@ class MyClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path()
       ..lineTo(0, size.height)
-      ..lineTo(size.width, size.height / 1.1)
+      ..quadraticBezierTo(
+          size.width / 1.4, size.height / 1.2, size.width, size.height / 1.2)
+      ..lineTo(size.width, size.height / 1.4)
       ..lineTo(size.width, 0)
       ..close();
     return path;
