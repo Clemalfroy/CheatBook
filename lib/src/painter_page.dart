@@ -18,7 +18,7 @@ class PainterPageState extends State<PainterPage>
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
-    _circleColor = ColorTween(begin: Colors.lightBlueAccent, end: Colors.blue)
+    _circleColor = ColorTween(begin: Colors.lightBlueAccent, end: Colors.red)
         .animate(CurvedAnimation(
             parent: _animationController, curve: Curves.easeIn));
     _animationController.forward();
@@ -38,16 +38,19 @@ class PainterPageState extends State<PainterPage>
       ),
       body: Stack(
         children: <Widget>[
-          AnimatedBuilder(
-            animation: _circleColor,
-            builder: (context, widget) {
-              return CustomPaint(
-                painter: FirstPainter(_circleColor.value),
-                child: Container(
-                  height: 500,
-                ),
-              );
-            },
+          ClipPath(
+            clipper: MyClipper(),
+            child: AnimatedBuilder(
+              animation: _circleColor,
+              builder: (context, widget) {
+                return CustomPaint(
+                  painter: FirstPainter(_circleColor.value),
+                  child: Container(
+                    height: 500,
+                  ),
+                );
+              },
+            ),
           ),
           Align(
               alignment: Alignment.topCenter,
@@ -93,5 +96,22 @@ class FirstPainter extends CustomPainter {
   @override
   bool shouldRepaint(FirstPainter oldDelegate) {
     return oldDelegate.circleColor != circleColor;
+  }
+}
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path()
+      ..lineTo(0, size.height)
+      ..lineTo(size.width, size.height / 1.1)
+      ..lineTo(size.width, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return oldClipper != this;
   }
 }
