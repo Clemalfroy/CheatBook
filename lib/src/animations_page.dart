@@ -45,9 +45,10 @@ class _AnimationsPageState extends State<AnimationsPage>
                   Center(
                     child: FadeTransition(
                       opacity: _animation,
-                      child: Card(
-                          child: Image.network(
-                              'https://cdn.intra.42.fr/users/medium_cmalfroy.jpg')),
+                      child: ClipOval(
+                        child: Image.network(
+                            'https://cdn.intra.42.fr/users/medium_cmalfroy.jpg'),
+                      ),
                     ),
                   ),
                   Transform.scale(
