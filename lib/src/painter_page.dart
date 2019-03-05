@@ -122,7 +122,7 @@ class MyClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
+  bool shouldReclip(MyClipper oldClipper) {
     return oldClipper != this;
   }
 }
