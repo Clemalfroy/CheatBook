@@ -4,6 +4,7 @@ import 'package:flutter_cheatbook/src/flare_animation_page.dart';
 import 'package:flutter_cheatbook/src/home_page.dart';
 import 'package:flutter_cheatbook/src/painter_page.dart';
 import 'package:flutter_cheatbook/src/slivers_page.dart';
+import 'package:flutter_cheatbook/src/state_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
   "/": (context) => HomePage(),
@@ -11,4 +12,5 @@ final Map<String, WidgetBuilder> routes = {
   "/painterPage": (context) => PainterPage(),
   "/flareAnimationPage": (context) => FlareAnimationPage(),
   "/sliversPage": (context) => SliversPage(),
+  "/statePage": (context) => StatePage(),
 };

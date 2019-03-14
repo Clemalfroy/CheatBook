@@ -35,6 +35,7 @@ class SliversPage extends StatelessWidget {
           sliver: SliverToBoxAdapter(
             child: Container(
               height: 150.0,
+              width: 150.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: imageList.length,
